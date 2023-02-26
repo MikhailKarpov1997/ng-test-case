@@ -8,7 +8,7 @@ import { HomePageComponent } from './pages/home-page.component';
 
 const routes: Routes = [
     { path: '', component: HomePageComponent },
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+    { path: '**', redirectTo: '', pathMatch: 'full' }, 
 ];
 
 
@@ -20,7 +20,7 @@ const routes: Routes = [
         CommonModule
     ],
     declarations: [
-        HomePageComponent
+        HomePageComponent, 
     ]
 })
 export class HomeModule { }

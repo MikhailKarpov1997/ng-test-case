@@ -1,0 +1,22 @@
+<p>Autorize, pleace</p>
+<form>
+    <input 
+    placeholder="Login" 
+    type="text"
+    name="login" 
+    [(ngModel)]="login"
+    required>
+
+    <br/>
+
+    <input 
+    placeholder="Password" 
+    type="password" 
+    name="password"
+    [(ngModel)]="password"
+    required>
+
+    <br/>
+
+    <button (click)="logIn()">Submit</button>
+</form>

@@ -1,0 +1,48 @@
+
+<div *ngIf="onEditProfile == false">
+    <h1>Your profile</h1>
+
+    <p>First Name: {{profileData.firstName}}</p> 
+    <p>Last Name: {{profileData.lastName}}</p>
+    <p>Phone number: {{profileData.phoneNumber}}</p>
+    <p>WebSite URL: {{profileData.WebSite}}</p>
+
+    <button (click)="onEditProfile = true" >Edit Info</button>
+</div>
+
+
+
+<div *ngIf="onEditProfile == true">
+    <h1>Edit profile</h1>
+    <form [formGroup]="clientForm" novalidate>
+        <label>First Name</label>
+        <input type="text" formControlName="firstName" />
+        <div *ngIf="_firstName?.invalid && (_firstName?.touched || _firstName?.dirty )">
+            <span *ngIf="_firstName?.errors?.['required']"> Field is required</span>
+            <span *ngIf="_firstName?.errors?.['maxlength']">Max 255 sumbols</span>
+        </div>
+
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName" />
+        <div *ngIf="_lastName?.invalid && (_lastName?.touched || _lastName?.dirty )">
+            <span *ngIf="_lastName?.errors?.['required']"> Field is required</span>
+            <span *ngIf="_lastName?.errors?.['maxlength']">Max 255 sumbols</span>
+        </div>
+
+        <label>Phone Number</label>
+        <input type="text" formControlName="phoneNumber" />
+        <div *ngIf="_phoneNumber?.invalid && (_phoneNumber?.touched || _phoneNumber?.dirty )">
+            <span *ngIf="_phoneNumber?.errors?.['required']"> Field is required</span>
+            <span *ngIf="_phoneNumber?.errors?.['maxlength'] || _phoneNumber?.errors?.['minlength']">You can take 10 sumbols</span>
+        </div>
+
+        <label>Web Site</label>
+        <input type="text" formControlName="webSite" />
+        <div *ngIf=" _webSite?.invalid && (_webSite?.touched || _webSite?.dirty )">
+            <span *ngIf="_webSite?.errors?.['required']">Pleace write valid URL</span>
+        </div>
+    </form>
+
+
+    <button>Save</button>
+</div>
